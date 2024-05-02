@@ -1,3 +1,7 @@
 .machine {
-    background-image: "./vending-machine.jpg";
+    background-image: url('./vending-machine.jpg');
+    width: 40em;
+    height: 40em;
+    color: white;
 }
+

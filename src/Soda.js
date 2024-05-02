@@ -1,13 +1,11 @@
 import React from "react";
 import Drinks from './soda.jpg'
-import GoBack from './GoBack';
 import './ImageStyling.css'
 
-const Soda =()=>{
+const Soda =({toggleMenu})=>{
     return(
-        <div>
+        <div onClick={toggleMenu}>
             <img className='image' src={Drinks} alt="various sodas"/>
-            <GoBack/>
         </div>
     )
 }

@@ -7,9 +7,11 @@ const VendingMachine = () => {
     return (
             <div className="machine">
                 <div>Hello! Please choose a snack!</div>
-            <BrowserRouter>
-                <Menu />
-            </BrowserRouter>
+                <div className="machine">
+                    <BrowserRouter>
+                        <Menu />
+                    </BrowserRouter>
+                </div>
             </div>
     );
 }

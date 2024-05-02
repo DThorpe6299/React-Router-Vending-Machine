@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import {NavLink, Routes, Route } from 'react-router-dom';
 import Candy from "./Candy";
 import Chips from "./Chips";
 import Soda from "./Soda";
 import './Menu.css'
+import GoBack from "./GoBack";
 
 const Menu = () => {
+    const [onMenu, setOnMenu] = useState(true)
+    const toggleMenu = () => {
+        setOnMenu(!onMenu);
+    }
     return (
-        <nav className="Menu">
-            <NavLink exact to="/candy">Candy</NavLink>
-            <NavLink exact to="/chips">Chips</NavLink>
-            <NavLink exact to="/soda">Soda</NavLink>
+        <nav>
+            <div className='Menu'>
+                {onMenu && (
+                    <>
+                        <NavLink onClick={toggleMenu} exact to="/candy">Candy</NavLink>
+                        <NavLink onClick={toggleMenu} exact to="/chips">Chips</NavLink>
+                        <NavLink onClick={toggleMenu} exact to="/soda">Soda</NavLink>
+                    </>
+                )}
+                <div className={onMenu ? 'hidden' : 'Goback'}>
+                    <GoBack toggleMenu={toggleMenu}/>
+                </div>
+            </div>
+            
 
-            <div>
+            <div className="Menu-routes">
             <Routes>
-                <Route path="/candy" element={<Candy />} />
-                <Route path="/chips" element={<Chips />} />
-                <Route path="/soda" element={<Soda />} />
+                <Route path="/candy" element={<Candy toggleMenu={toggleMenu}/>} />
+                <Route path="/chips" element={<Chips toggleMenu={toggleMenu}/>} />
+                <Route path="/soda" element={<Soda toggleMenu={toggleMenu}/>} />
             </Routes>
             </div>
         </nav>

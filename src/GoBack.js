@@ -1,12 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Routes, Route } from "react-router-dom";
 
-const GoBack =()=>{
+const GoBack =({toggleMenu})=>{
     return(
         <nav>
-            <NavLink exact to='/'>
+            <NavLink onClick={toggleMenu} exact to='/'>
                 Go Back
             </NavLink>
+            <Routes>
+                <Route path="/" />
+            </Routes>
         </nav>
     )
 }

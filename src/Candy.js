@@ -1,13 +1,11 @@
 import React from "react";
 import Sweets from './Candy.webp'
-import GoBack from './GoBack';
 import './ImageStyling.css'
 
-const Candy =()=>{
+const Candy =({toggleMenu})=>{
     return(
-        <div >
+        <div onClick={toggleMenu}>
             <img className="image" src={Sweets} alt="various candies"/>
-            <GoBack/>
         </div>
     )
 }
